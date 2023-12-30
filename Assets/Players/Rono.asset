@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe0fa317705a884b979740d87165766, type: 3}
+  m_Name: Rono
+  m_EditorClassIdentifier: 
+  charName: Rono
+  speed: 70
+  portrait: {fileID: 21300000, guid: d9c5451fdc61a0244b44d2b1c326c6d8, type: 3}
+  attribute: 3
+  species1: 6
+  species2: 1
+  useName: 1
+  unitType: 0
+  level: 1
+  stats:
+  - 105
+  - 69
+  - 34
+  - 57
+  - 36
+  - 61
+  - 90
+  - 45
+  - 52
+  - 4
+  - 3
+  skillsList:
+  - {fileID: 11400000, guid: 8ca0b98e120769a4b8ca9ef9a154e5a6, type: 2}
+  - {fileID: 11400000, guid: 4c4931b1ab069174ba23315880758225, type: 2}
+  quicken: 0
+  delay: 0
+  stop: 0
+  _cyclesNeeded: 6
+  elementalBoost:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  elementalRes:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  damagePowerBoost:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  damagePowerRes:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0

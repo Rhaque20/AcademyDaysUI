@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe0fa317705a884b979740d87165766, type: 3}
+  m_Name: Claire
+  m_EditorClassIdentifier: 
+  charName: Claire
+  speed: 70
+  portrait: {fileID: 21300000, guid: f66e0187fc2d46d40ba7561636212a4c, type: 3}
+  attribute: 4
+  species1: 1
+  species2: 0
+  useName: 1
+  unitType: 0
+  level: 1
+  stats:
+  - 110
+  - 60
+  - 40
+  - 45
+  - 36
+  - 56
+  - 90
+  - 29
+  - 48
+  - 4
+  - 3
+  skillsList:
+  - {fileID: 11400000, guid: 7bd992dd7e7b32141b6a9c75c3a54e0b, type: 2}
+  - {fileID: 11400000, guid: eb432879de42c304f814e2c6264d6611, type: 2}
+  quicken: 0
+  delay: 0
+  stop: 0
+  _cyclesNeeded: 11
+  elementalBoost:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  elementalRes:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  damagePowerBoost:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  damagePowerRes:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
