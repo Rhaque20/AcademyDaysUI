@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SakuraTreeNinja
   m_EditorClassIdentifier: 
   charName: Sakura Tree Ninja
-  portrait: {fileID: 21300000, guid: b6bd1573e820a2d45ae11362f685d0a4, type: 3}
+  portrait: {fileID: 21300000, guid: 24abc8701952e7245bb700f4d31aed27, type: 3}
   attribute: 1
   species1: 6
   species2: 0
@@ -26,9 +26,9 @@ MonoBehaviour:
   - 40
   - 60
   - 40
-  - 15
+  - 30
+  - 55
   - 50
-  - 40
   - 20
   - 0
   - 0

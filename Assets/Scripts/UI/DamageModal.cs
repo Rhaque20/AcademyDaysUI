@@ -103,6 +103,7 @@ public class DamageModal : MonoBehaviour
         float attack = 0f;
 
         float PATK = attacker.GetFinalStat((int)EnumLibrary.Stats.PATK), AGI = attacker.GetFinalStat((int)EnumLibrary.Stats.AGI),DEX = attacker.GetFinalStat((int)EnumLibrary.Stats.TEC);
+        float MDEF = attacker.GetFinalStat((int)EnumLibrary.Stats.MDEF);
         float level = attacker.level;
 
         Debug.Log("Scale Formula is type "+scaleFormula.ToString());
@@ -138,6 +139,9 @@ public class DamageModal : MonoBehaviour
             case EnumLibrary.ATKScale.Gunner:
                 attack = 0.8f * (PATK +DEX);
             break;
+            case EnumLibrary.ATKScale.HalfMDEF:
+                attack = 0.8f * MDEF;
+            break;
             default:
                 attack = 100f;
             break;
@@ -147,10 +151,11 @@ public class DamageModal : MonoBehaviour
 
     public float ScaleDEF(EnumLibrary.DEFScale defScale, Player defender)
     {
+        Skill attackingSkill = _attacker.skillsList[skillSelection.value];
         if (defScale == EnumLibrary.DEFScale.Physical)
-            return defender.GetFinalStat((int)EnumLibrary.Stats.PDEF) * (1 - (_backStabtoggle.isOn ? 0.15f : 0.0f));
+            return defender.GetFinalStat((int)EnumLibrary.Stats.PDEF) * (1 - (_backStabtoggle.isOn ? Mathf.Max(0.15f,attackingSkill.defIgnore[1]) : 0.0f));
         else if (defScale == EnumLibrary.DEFScale.Magical)
-            return defender.GetFinalStat((int)EnumLibrary.Stats.MDEF) * (1 - (_backStabtoggle.isOn ? 0.15f : 0.0f));
+            return defender.GetFinalStat((int)EnumLibrary.Stats.MDEF) * (1 - (_backStabtoggle.isOn ? Mathf.Max(0.15f,attackingSkill.defIgnore[1]) : 0.0f));
         return 0f;
     }
 
@@ -196,16 +201,31 @@ public class DamageModal : MonoBehaviour
                     _damageLog.GetChild(i).gameObject.SetActive(false);
                     continue;
                 }
+
                 Player defender = defenderList[i].heldEntity.getFighterData;
-                totalModifier *= (1 + TotalAdvantageMod((int)_attacker.attribute,(int)defender.attribute) + TotalAdvantageMod((int)attackingSkill.attribute,(int)defender.attribute));
-                totalModifier *= (1f + DamagePowerMod((int)attackingSkill.powerType,defender));
-                totalModifier *= (1f + ElementPowerMod((int)attackingSkill.attribute,defender));
-                Debug.Log("Attack is "+attack+" and final modifier is"+totalModifier+" scaled DEF is "+ScaleDEF(attackingSkill.defScale,defender));
-                finalDamage = (attack * attackingSkill.skillPower * totalModifier - ScaleDEF(attackingSkill.defScale,defender)) - UnityEngine.Random.Range(1,10f);
-                finalDamage = Mathf.Max(finalDamage,1);
-                _damageLog.GetChild(i).gameObject.SetActive(true);
-                _damageLog.GetChild(i).GetComponent<TMP_Text>().SetText(defender.charName+"'s AC is <b>"+FinalAC(_attacker,defender)+
-                "</b>,projected damage is <b>"+finalDamage.ToString("F0")+"</b>, and crit number is "+CritChance(_attacker,defender));
+
+                if (attackingSkill.skillTag1 == EnumLibrary.SkillType.Damage || attackingSkill.skillTag2 == EnumLibrary.SkillType.Damage)
+                {
+                    totalModifier *= (1 + TotalAdvantageMod((int)_attacker.attribute,(int)defender.attribute) + TotalAdvantageMod((int)attackingSkill.attribute,(int)defender.attribute));
+                    totalModifier *= (1f + DamagePowerMod((int)attackingSkill.powerType,defender));
+                    totalModifier *= (1f + ElementPowerMod((int)attackingSkill.attribute,defender));
+                    Debug.Log("Attack is "+attack+" and final modifier is"+totalModifier+" scaled DEF is "+ScaleDEF(attackingSkill.defScale,defender));
+                    finalDamage = (attack * attackingSkill.skillPower * totalModifier - ScaleDEF(attackingSkill.defScale,defender)) - UnityEngine.Random.Range(1,10f);
+                    finalDamage = Mathf.Max(finalDamage,1);
+                    _damageLog.GetChild(i).gameObject.SetActive(true);
+                    _damageLog.GetChild(i).GetComponent<TMP_Text>().SetText(defender.charName+"'s AC is <b>"+FinalAC(_attacker,defender)+
+                    "</b>,projected damage is <b>"+finalDamage.ToString("F0")+"</b>, and crit number is "+CritChance(_attacker,defender));
+                }
+                else if(attackingSkill.skillTag1 != EnumLibrary.SkillType.None)
+                {
+                    if(attackingSkill.atkScale == EnumLibrary.ATKScale.HalfMDEF)
+                    {
+                        finalDamage = Mathf.Max(finalDamage,1);
+                        _damageLog.GetChild(i).gameObject.SetActive(true);
+                        _damageLog.GetChild(i).GetComponent<TMP_Text>().SetText("Restore "+finalDamage+" HP to "+defender.charName);
+                    }
+                }
+                
             }
 
             //finalDamage = Mathf.Round(finalDamage * totalModifier);

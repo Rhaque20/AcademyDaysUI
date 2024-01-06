@@ -44,11 +44,21 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  skillsList: []
+  otherStats:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  skillsList:
+  - {fileID: 11400000, guid: a9ace7e577a091743807a5a7804ec953, type: 2}
+  - {fileID: 11400000, guid: dda19808643214844a5371fa1d605425, type: 2}
+  - {fileID: 11400000, guid: 3c1f13f739e2bec4b8f504e886250523, type: 2}
   quicken: 0
   delay: 0
   stop: 0
-  _cyclesNeeded: 2
+  _cyclesNeeded: 15
   elementalBoost:
   - 0
   - 0
