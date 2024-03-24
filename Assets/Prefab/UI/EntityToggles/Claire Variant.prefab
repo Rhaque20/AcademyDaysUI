@@ -8,12 +8,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1392288014193339572, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
+      propertyPath: subFighter
+      value: 
+      objectReference: {fileID: 11400000, guid: 9fa8262cc26d3bf4a8087fe1216a426d, type: 2}
+    - target: {fileID: 1392288014193339572, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
       propertyPath: mainFighter
       value: 
       objectReference: {fileID: 11400000, guid: 8e3c810246ef0494583b6b5e2350eb39, type: 2}
     - target: {fileID: 5564848278103981840, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
       propertyPath: m_Name
-      value: Claire
+      value: Claire Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5564848278103981843, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
       propertyPath: m_Pivot.x

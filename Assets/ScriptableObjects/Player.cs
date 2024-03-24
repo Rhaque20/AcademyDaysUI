@@ -55,7 +55,7 @@ public class Player : ScriptableObject
 
     public float speed
     {
-        get{return GetFinalStat((int)EnumLibrary.Stats.AGI);}
+        get{return MathF.Max(GetFinalStat((int)EnumLibrary.Stats.AGI),50);}
         set{
             Debug.Log("Setting speed");
         }
@@ -147,6 +147,11 @@ public class Player : ScriptableObject
         _focus += CT;
         if (_focus < 0f)
             _focus = 0;
+    }
+
+    public void ResetFocus()
+    {
+        _focus = 0;
     }
 
     public void AlterActionValue(float push)

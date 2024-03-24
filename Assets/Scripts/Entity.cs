@@ -140,7 +140,18 @@ public class Entity : MonoBehaviour,IComparable<Entity>
 
     public void SetFighter()
     {
-        BattleManager.instance.SetFighter(getFighterData);
+        BattleManager.instance.SetFighter(GetComponent<Entity>());
+    }
+
+    private void SetDisplay()
+    {
+        icon.sprite = getFighterData.portrait;
+        subName.SetText(getFighterData.charName);
+        if (getFighterData.attribute != EnumLibrary.Element.Pure)
+        {
+            int attributeNumber = (int)getFighterData.attribute;
+            elementIcon.sprite = BattleManager.instance.elementIcons[attributeNumber];
+        }
     }
 
     public void GenerateStatusEffects(List<StatusEffect> statlist)
@@ -182,20 +193,10 @@ public class Entity : MonoBehaviour,IComparable<Entity>
             return;
         }
 
-        if (mainChar)
-        {
-            mainChar = false;
-            subName.SetText(subFighter.charName);
-            icon.sprite = subFighter.portrait;
-            subFighter.GenerateActionValue();
-        }
-        else
-        {
-            mainChar = true;
-            subName.SetText(mainFighter.charName);
-            icon.sprite = mainFighter.portrait;
-            mainFighter.GenerateActionValue();
-        }
+        getFighterData.ResetFocus();
+        mainChar = !mainChar;
+        SetDisplay();
+        getFighterData.ResetFocus();
     }
 
     public int CompareTo(Entity other)

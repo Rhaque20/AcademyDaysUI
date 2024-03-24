@@ -55,7 +55,7 @@ public class ToggleCharacter : MonoBehaviour
         }
         if (toggleType == 1 && BattleManager.instance.selectingAttacker)
         {
-            BattleManager.instance.SetFighter(heldEntity.getFighterData);
+            BattleManager.instance.SetFighter(heldEntity);
             //BattleManager.instance.SelectingAttacker();
         }
     }

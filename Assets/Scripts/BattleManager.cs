@@ -15,6 +15,7 @@ public class BattleManager : MonoBehaviour
     public TMP_InputField damageInput;
 
     Player attacker,defender;
+    Entity _activeEntity;
     public List<GameObject> fighterList = new List<GameObject>();
 
     public GameObject attackerUI = null,defenderUI = null, toggleCharPrefab;
@@ -85,9 +86,11 @@ public class BattleManager : MonoBehaviour
         _damageModal.SetActive(false);
     }
 
-    public void SetFighter(Player fighter)
+    public void SetFighter(Entity SelectedEntity)
     {
         GameObject uiElement;
+        Player fighter = SelectedEntity.getFighterData;
+        _activeEntity = SelectedEntity;
         if (dropdown.value == 0)
         {
             uiElement = attackerUI;
@@ -136,6 +139,15 @@ public class BattleManager : MonoBehaviour
         
     //     Entity(dropdown.value).GetComponent<Entity>().DecrementBuff(onUse,defense);
     // }
+
+    public void SwapCharacter()
+    {
+        if (_activeEntity != null)
+        {
+            _activeEntity.SwitchFighter();
+            TurnOrderManager.instance.AdvanceTurn();
+        }
+    }
 
     public void TurnOnDamageModal(bool modal)
     {
