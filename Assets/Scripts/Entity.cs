@@ -138,6 +138,33 @@ public class Entity : MonoBehaviour,IComparable<Entity>
         }
     }
 
+    public void DecrementBuff(string statusName)
+    {
+        if(getFighterData.statuses.ContainsKey(statusName))
+        {
+            
+            getFighterData.statuses[statusName].duration--;
+            statusDisplay.UpdateDisplay(getFighterData.statuses[statusName]);
+
+            if (getFighterData.statuses[statusName].duration <= 0)
+            {
+                getFighterData.statuses.Remove(statusName);
+                statusDisplay.RemoveFromDisplay(statusName);
+            }
+        }
+    }
+
+    public void RemoveEffect(string statusName)
+    {
+        if(getFighterData.statuses.ContainsKey(statusName))
+        {
+            
+            statusDisplay.RemoveFromDisplay(statusName);
+            getFighterData.statuses.Remove(statusName);
+
+        }
+    }
+
     public void SetFighter()
     {
         BattleManager.instance.SetFighter(GetComponent<Entity>());

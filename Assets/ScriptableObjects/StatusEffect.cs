@@ -6,7 +6,7 @@ using UnityEngine;
 public class StatusEffect : ScriptableObject
 {
     public string statusName;
-    public int duration = 3;
+    public int duration = 3, useCount = 0;
 
     public bool isBuff = true;
     public bool onUse = false;

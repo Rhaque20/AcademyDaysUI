@@ -20,6 +20,7 @@ public class BattleManager : MonoBehaviour
 
     public GameObject attackerUI = null,defenderUI = null, toggleCharPrefab;
     [SerializeField]private GameObject _damageModal;
+    [SerializeField]private BuffDebuffModal _buffDebuffModal;
     public Transform listContent,effectContent,targetList,statusList;
     public TMP_Text display;
 
@@ -159,6 +160,11 @@ public class BattleManager : MonoBehaviour
         _damageModal.SetActive(modal);
     }
 
+    public void TurnOnBuffDebuffModal()
+    {
+        _buffDebuffModal.OpenModal(_activeEntity);
+    }
+
     public void DecrementBuff(int i, Entity e)
     {
         bool onUse = false, defense = false;
@@ -186,24 +192,4 @@ public class BattleManager : MonoBehaviour
 
         e.DecrementBuff(onUse,defense);
     }
-
-    // void Update()
-    // {
-    //     if (Input.GetKeyUp(KeyCode.Return) && damageInput.text.CompareTo("") != 0) 
-    //     { 
-    //         baseDamage = int.Parse(damageInput.text);
-    //         CalculateDamage();
-    //     }
-
-    //     if (dropdown.value == 0)
-    //     {
-    //         selectionRectAttack.SetActive(true);
-    //         selectionRectDefender.SetActive(false);
-    //     }
-    //     else
-    //     {
-    //         selectionRectAttack.SetActive(false);
-    //         selectionRectDefender.SetActive(true);
-    //     }
-    // }
 }

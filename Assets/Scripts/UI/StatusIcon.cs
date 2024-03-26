@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 
 public class StatusIcon : MonoBehaviour
 {
-    StatusEffect currentStatus;
+    StatusEffect _currentStatus;
     TMP_Text _duration;
 
     [SerializeField]
@@ -17,6 +17,11 @@ public class StatusIcon : MonoBehaviour
 
     [SerializeField]
     private Sprite _onUse;
+
+    public StatusEffect currentStatus
+    {
+        get{return _currentStatus;}
+    }
     
     public void StartStatus()
     {
@@ -26,9 +31,17 @@ public class StatusIcon : MonoBehaviour
         _shield = transform.GetChild(3).GetComponent<Image>();
     }
 
+    public void UpdateStatus()
+    {
+        if(_currentStatus == null)
+            return;
+        
+        SetStatus(_currentStatus);
+    }
+
     public void SetStatus(StatusEffect newStatus)
     {
-        currentStatus = newStatus;
+        _currentStatus = newStatus;
         this.gameObject.SetActive(true);
 
         if(_backDrop == null)

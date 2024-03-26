@@ -208,6 +208,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48109a9531f62b4f890b8b1e8deea5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buffColor: {r: 0.39215687, g: 0.654902, b: 1, a: 1}
+  debuffColor: {r: 0.9764706, g: 0.02745098, b: 0.02745098, a: 1}
+  _onUse: {fileID: 21300000, guid: e89b7e4197608be4289890bbb246d560, type: 3}
 --- !u!114 &8431621809791746212
 MonoBehaviour:
   m_ObjectHideFlags: 0
