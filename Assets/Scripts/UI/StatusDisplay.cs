@@ -9,7 +9,7 @@ public class StatusDisplay : MonoBehaviour
     const int maxEffect = 10;
     [SerializeField]public GameObject statusPrefab;
     [SerializeField]Sprite onUse;
-    public Color buffColor, debuffColor;
+    
     public Dictionary<string,int> effectIndex = new Dictionary<string,int>();
     bool _initialized = false;
     // Start is called before the first frame update
@@ -69,49 +69,10 @@ public class StatusDisplay : MonoBehaviour
 
             if (!g.gameObject.activeSelf)
             {
-                Image backDrop = g.GetChild(0).GetComponent<Image>();
-                Image icon = g.GetChild(1).GetComponent<Image>();
-                TMP_Text duration = g.GetChild(2).GetComponent<TMP_Text>();
-                Image shield = g.GetChild(3).GetComponent<Image>();
-
-                if (status.onUse)
-                {
-                    backDrop.sprite = onUse;
-                }
-                else
-                {
-                    backDrop.sprite = null;
-                }
-
-                if(status.isBuff)
-                {
-                    backDrop.color = buffColor;
-                }
-                else
-                {
-                    backDrop.color = debuffColor;
-                }
-
-                if (status.isElement)
-                {
-                    icon.sprite = BattleManager.instance.elementIcons[(int)status.attribute];
-                }
-                else if(!status.isStatUp)
-                {
-                    icon.sprite = BattleManager.instance.powerIcons[(int)status.power];
-                }
-                else
-                {
-                    icon.sprite = BattleManager.instance.statIcons[(int)status.stat];
-                }
-
-                shield.gameObject.SetActive(status.isRes);
 
                 Debug.Log("Adding to display "+status.statusName);
-                
-                duration.text = status.duration.ToString();
+                g.GetComponent<StatusIcon>().SetStatus(status);
                 effectIndex.Add(status.statusName,i);
-                g.gameObject.SetActive(true);
                 break;
 
             }

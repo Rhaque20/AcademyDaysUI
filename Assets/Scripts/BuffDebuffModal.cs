@@ -9,7 +9,14 @@ public class BuffDebuffModal : MonoBehaviour
     [SerializeField]Transform _iconList,_charList;
     void Start()
     {
-        
+        GameObject temp;
+        for(int i = 0; i < 10; i++)
+        {
+            temp = Instantiate(_statusIconPrefab);
+            temp.transform.SetParent(_iconList);
+            temp.transform.localScale = new Vector2(1f,1f);
+            temp.SetActive(false);
+        } 
     }
 
     // Update is called once per frame

@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ToggleButton : MonoBehaviour
+public class ToggleButton : GenericToggle
 {
-    [SerializeField]Image buttonIcon,shield;
+    [SerializeField]Image _buttonIcon,_shield;
     public StatusModal statusWindow;
     [SerializeField]bool isBuff = true;
     [SerializeField]bool isResistance = false, isElement = true;
-    Toggle toggle;
+    
     public EnumLibrary.Element attribute;
     public EnumLibrary.DamagePower power;
     public EnumLibrary.Stats stat;
@@ -30,33 +30,32 @@ public class ToggleButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        base.Start();
         if (isElement)
-            buttonIcon.sprite = BattleManager.instance.elementIcons[(int)attribute];
+            _buttonIcon.sprite = BattleManager.instance.elementIcons[(int)attribute];
         else if(power != EnumLibrary.DamagePower.NonType)
-            buttonIcon.sprite = BattleManager.instance.powerIcons[(int)power];
+            _buttonIcon.sprite = BattleManager.instance.powerIcons[(int)power];
         else
-            buttonIcon.sprite = BattleManager.instance.statIcons[(int)stat];
-        
-        toggle = GetComponent<Toggle>();
+            _buttonIcon.sprite = BattleManager.instance.statIcons[(int)stat];
+    
         // toggle.onValueChanged.AddListener(OnToggleValueChanged);
         if (isResistance)
-            shield.gameObject.SetActive(true);
+            _shield.gameObject.SetActive(true);
     }
 
     public void SummonListItem()
     {
         OnToggleValueChanged();
-        statusWindow.SummonListItem(GetComponent<ToggleButton>(),toggle.isOn);
+        statusWindow.SummonListItem(GetComponent<ToggleButton>(),_toggle.isOn);
     }
 
-    private void OnToggleValueChanged()
+    public override void OnToggleValueChanged()
     {
         isBuff = (statusWindow.dropDownVal == 0);
         Debug.Log(gameObject.name+"'s toggle has changed!");
-        Image buttonBack = transform.GetChild(0).GetComponent<Image>();
-        if (toggle.isOn)
-            buttonBack.color = (isBuff ? statusWindow.buffColor:statusWindow.debuffColor);
+        if (_toggle.isOn)
+            _buttonBack.color = (isBuff ? statusWindow.buffColor:statusWindow.debuffColor);
         else
-            buttonBack.color = Color.white;
+            _buttonBack.color = Color.white;
     }
 }

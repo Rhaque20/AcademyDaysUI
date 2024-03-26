@@ -187,11 +187,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02268545cf17b7a49a1e097dc8733fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconSprite: {fileID: 0}
-  buttonIcon: {fileID: 1995036393251635451}
-  shield: {fileID: 3603265648527606439}
+  _selectedColor:
+    serializedVersion: 2
+    rgba: 0
+  _unSelectedColor:
+    serializedVersion: 2
+    rgba: 0
+  _buttonBack: {fileID: 0}
+  _buttonIcon: {fileID: 1995036393251635451}
+  _shield: {fileID: 3603265648527606439}
   statusWindow: {fileID: 0}
+  isBuff: 1
   isResistance: 0
+  isElement: 1
+  attribute: 0
+  power: 0
+  stat: 0
 --- !u!1 &1995036394428459900
 GameObject:
   m_ObjectHideFlags: 0
