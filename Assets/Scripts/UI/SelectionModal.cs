@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectionModal : MonoBehaviour
+public class SelectionModal : MonoBehaviour,IUserInterface
 {
     [SerializeField]Transform effectContent;
     [SerializeField]StatusModal mainModal;

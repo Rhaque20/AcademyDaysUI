@@ -15,10 +15,10 @@ MonoBehaviour:
   skillTag1: 2
   skillTag2: 0
   powerType: 3
-  attribute: 6
+  attribute: 4
   atkScale: 8
   defScale: 2
-  skillPower: 1
+  skillPower: 1.5
   isMultiHit: 0
   comboDMGRate: 0
   comboCount: 0

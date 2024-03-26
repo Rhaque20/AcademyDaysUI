@@ -6,7 +6,7 @@ public class BuffDebuffModal : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]GameObject _statusIconPrefab;
-    [SerializeField]Transform _iconList;
+    [SerializeField]Transform _iconList,_charList;
     void Start()
     {
         

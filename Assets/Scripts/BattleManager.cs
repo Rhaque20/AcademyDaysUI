@@ -20,7 +20,7 @@ public class BattleManager : MonoBehaviour
 
     public GameObject attackerUI = null,defenderUI = null, toggleCharPrefab;
     [SerializeField]private GameObject _damageModal;
-    public Transform listContent,effectContent,targetList;
+    public Transform listContent,effectContent,targetList,statusList;
     public TMP_Text display;
 
     public bool selectingAttacker = false;
@@ -73,6 +73,11 @@ public class BattleManager : MonoBehaviour
             g = Instantiate(toggleCharPrefab);
             g.GetComponent<ToggleCharacter>().Initialize(combatants[i]);
             g.transform.SetParent(targetList);
+            g.GetComponent<Transform>().localScale = new Vector3(1f,1f,1f);
+
+            g = Instantiate(toggleCharPrefab);
+            g.GetComponent<ToggleCharacter>().Initialize(combatants[i]);
+            g.transform.SetParent(statusList);
             g.GetComponent<Transform>().localScale = new Vector3(1f,1f,1f);
 
             //activeTemp.GetComponent<Entity>().index = i;
