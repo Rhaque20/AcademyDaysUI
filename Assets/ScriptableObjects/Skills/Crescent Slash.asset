@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb94c236086aca142a0be9ea54ffcd55, type: 3}
-  m_Name: WarriorAttack
+  m_Name: Crescent Slash
   m_EditorClassIdentifier: 
   skillTag1: 2
   skillTag2: 0
   powerType: 0
-  attribute: 6
+  attribute: 3
   atkScale: 1
   defScale: 1
-  skillPower: 1
+  skillPower: 2.2
   isMultiHit: 0
   comboDMGRate: 0
   comboCount: 0
