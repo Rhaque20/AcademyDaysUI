@@ -206,9 +206,9 @@ public class DamageModal : MonoBehaviour
 
                 if (attackingSkill.skillTag1 == EnumLibrary.SkillType.Damage || attackingSkill.skillTag2 == EnumLibrary.SkillType.Damage)
                 {
-                    totalModifier *= (1 + TotalAdvantageMod((int)_attacker.attribute,(int)defender.attribute) + TotalAdvantageMod((int)attackingSkill.attribute,(int)defender.attribute));
-                    totalModifier *= (1f + DamagePowerMod((int)attackingSkill.powerType,defender));
-                    totalModifier *= (1f + ElementPowerMod((int)attackingSkill.attribute,defender));
+                    totalModifier += (TotalAdvantageMod((int)_attacker.attribute,(int)defender.attribute) + TotalAdvantageMod((int)attackingSkill.attribute,(int)defender.attribute));
+                    totalModifier += (DamagePowerMod((int)attackingSkill.powerType,defender));
+                    totalModifier += (ElementPowerMod((int)attackingSkill.attribute,defender));
                     Debug.Log("Attack is "+attack+" and final modifier is"+totalModifier+" scaled DEF is "+ScaleDEF(attackingSkill.defScale,defender));
                     finalDamage = (attack * attackingSkill.skillPower * totalModifier - ScaleDEF(attackingSkill.defScale,defender)) - UnityEngine.Random.Range(1,10f);
                     finalDamage = Mathf.Max(finalDamage,1);

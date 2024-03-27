@@ -183,6 +183,7 @@ public class TurnOrderManager : MonoBehaviour
         else
         {
             _combatants[n].getFighterData.FocusPush(float.Parse(_turnEnd.options[_turnEnd.value].text));
+            BattleManager.instance.DecrementBuff(0,_combatants[n]);
         }
             
 
@@ -207,7 +208,7 @@ public class TurnOrderManager : MonoBehaviour
         if(!_combatants[n].isSpellUnit)
         {
             //_combatants[0].getFighterData.GenerateActionValue();
-            BattleManager.instance.DecrementBuff(0,_combatants[n]);
+            
         }
         
         GenerateTurnList();

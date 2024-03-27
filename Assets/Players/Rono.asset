@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Rono
   m_EditorClassIdentifier: 
   charName: Rono
-  speed: 70
   portrait: {fileID: 21300000, guid: d9c5451fdc61a0244b44d2b1c326c6d8, type: 3}
   attribute: 3
   species1: 6
@@ -33,13 +32,33 @@ MonoBehaviour:
   - 52
   - 4
   - 3
+  statBoosts:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  otherStats:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   skillsList:
   - {fileID: 11400000, guid: 8ca0b98e120769a4b8ca9ef9a154e5a6, type: 2}
   - {fileID: 11400000, guid: 4c4931b1ab069174ba23315880758225, type: 2}
+  - {fileID: 11400000, guid: 6ea0988ab3a07cd4a949c8b60e132f81, type: 2}
   quicken: 0
   delay: 0
   stop: 0
-  _cyclesNeeded: 6
+  _cyclesNeeded: 11
   elementalBoost:
   - 0
   - 0

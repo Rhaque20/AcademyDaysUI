@@ -28011,8 +28011,8 @@ MonoBehaviour:
   - {fileID: 6670753516000315971, guid: f00d663922c1389468671e93dccd78d3, type: 3}
   - {fileID: 2802880010235534178, guid: 9dd8e0c38947fca4390e5f48560fcbfa, type: 3}
   - {fileID: 2802880010235534178, guid: 9dd8e0c38947fca4390e5f48560fcbfa, type: 3}
-  - {fileID: 2802880010235534178, guid: 9dd8e0c38947fca4390e5f48560fcbfa, type: 3}
-  - {fileID: 2802880010235534178, guid: 9dd8e0c38947fca4390e5f48560fcbfa, type: 3}
+  - {fileID: 2802880010235534178, guid: 51d0584053cd04b40a6714141cbf3f88, type: 3}
+  - {fileID: 2802880010235534178, guid: 51d0584053cd04b40a6714141cbf3f88, type: 3}
   attackerUI: {fileID: 312110236}
   defenderUI: {fileID: 1852539033}
   toggleCharPrefab: {fileID: 5564848278103981840, guid: 8ca41f1907273d24690df9b6d0eee6a7, type: 3}
