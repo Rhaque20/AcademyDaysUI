@@ -88,10 +88,16 @@ public class Player : ScriptableObject
         charName = mainPlayer.charName;
         //speed = mainPlayer.speed;
         portrait = mainPlayer.portrait;
-        stats = new float[mainPlayer.stats.Length];
-        otherStats = new float[mainPlayer.otherStats.Length];
+
         Array.Copy(mainPlayer.stats,stats,mainPlayer.stats.Length);
         Array.Copy(mainPlayer.otherStats,otherStats,mainPlayer.otherStats.Length);
+
+        Array.Copy(mainPlayer.elementalBoost,elementalBoost,elementalBoost.Length);
+        Array.Copy(mainPlayer.damagePowerBoost,damagePowerBoost,damagePowerBoost.Length);
+
+        Array.Copy(mainPlayer.elementalRes,elementalRes,elementalRes.Length);
+        Array.Copy(mainPlayer.damagePowerRes,damagePowerRes,damagePowerRes.Length);
+
         attribute = mainPlayer.attribute;
         species1 = mainPlayer.species1;
         species2 = mainPlayer.species2;
@@ -419,6 +425,8 @@ public class Player : ScriptableObject
             {
                 additionalMod += statuses[statusName +"Down"].efficacy;
             }
+
+            Debug.Log(charName+": Res of "+(EnumLibrary.DamagePower)i+" is "+damagePowerRes[i]);
 
             return damagePowerRes[i] + additionalMod;
         }
