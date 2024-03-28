@@ -75,6 +75,10 @@ public class Player : ScriptableObject
     public float focus
     {
         get{return _focus;}
+        set{
+            Debug.Log("Hard setting focus to "+value);
+            _focus = value;
+        }
     }
 
     // public Player()
@@ -165,11 +169,6 @@ public class Player : ScriptableObject
         _actionValue *= (1 - push/100f);
     }
 
-    public void AlterActionValue()
-    {
-
-    }
-
     public void DecreaseActionValue(float decrease)
     {
         _actionValue -= decrease;
@@ -257,6 +256,25 @@ public class Player : ScriptableObject
         _focus += (CRGain*cycles);
 
         return (_focus >= 100f);
+    }
+
+    public float GetTempFocus(int cycles)
+    {
+        return _focus + (CRGain*cycles);
+    }
+
+    public float GetTempFocus(int cycles,float focusDown)
+    {
+        return (_focus - focusDown) + (CRGain*cycles);
+    }
+
+    //Exists for theoretical
+    public int MinCyclesNeeded(float focusDown)
+    {
+        float focusRemaining = _focus - focusDown;
+        float cyclesRemaining = Mathf.Ceil(focusRemaining/CRGain);
+
+        return (int)cyclesRemaining;
     }
 
     public int MinCyclesNeeded()

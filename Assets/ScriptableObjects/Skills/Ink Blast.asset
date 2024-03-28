@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillTag1: 2
   skillTag2: 0
-  powerType: 1
+  powerType: 3
   attribute: 6
   atkScale: 2
-  defScale: 1
+  defScale: 2
   skillPower: 1
   isMultiHit: 0
   comboDMGRate: 0

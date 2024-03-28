@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using System;
 
 public class TurnOrderManager : MonoBehaviour
 {
@@ -72,7 +73,7 @@ public class TurnOrderManager : MonoBehaviour
             }
 
             e.StartEntity();
-            e.getFighterData.FocusPush(Random.Range(0f,5f));
+            e.getFighterData.FocusPush(UnityEngine.Random.Range(0f,5f));
             e.getFighterData.MinCyclesNeeded();
             _combatants.Add(e);
 
@@ -115,6 +116,93 @@ public class TurnOrderManager : MonoBehaviour
         BattleManager.instance.StartSetUp(_combatants);
         _combatants.Sort();
         GenerateTurnList();
+    }
+
+    public int ReturnMinimumCycles()
+    {
+        List<int> cycleSort = new List<int>();
+        
+        for(int i = 0; i < _combatants.Count; i++)
+        {
+            cycleSort.Add(_combatants[i].getFighterData.MinCyclesNeeded());
+        }
+
+        cycleSort.Sort();
+        return cycleSort[0];
+    }
+
+    public List<KeyValuePair<Entity,float>> ReturnTurnOrderList(float focusDown)
+    {
+        Dictionary<Entity,int> cyclesGroup = new();
+        List<KeyValuePair<Entity,int>> cyclesList;
+        Player p;
+        Entity activeEntity = _combatants[0];
+        for(int i = 0; i < _combatants.Count; i++)
+        {
+            p = _combatants[i].getFighterData;
+            if (i == _combatants.Count - 1)
+            {
+                Debug.Log("Decremented "+_combatants[i].getFighterData.charName);
+                cyclesGroup.Add(_combatants[i],p.MinCyclesNeeded(focusDown));
+                activeEntity = _combatants[i];
+            }
+            else
+                cyclesGroup.Add(_combatants[i],p.MinCyclesNeeded());
+        }
+
+       
+
+        cyclesList = cyclesGroup.ToList();
+        cyclesList.Sort((pair1,pair2) => pair1.Value.CompareTo(pair2.Value));
+
+        List<KeyValuePair<Entity,float>> finalList = new();
+
+        float focus;
+
+        foreach(KeyValuePair<Entity,int> kvp in cyclesList)
+        {
+            if (kvp.Key == activeEntity)
+            {
+                focus = kvp.Key.getFighterData.GetTempFocus(cyclesList[0].Value,focusDown);
+            }
+            else
+            {
+                focus = kvp.Key.getFighterData.GetTempFocus(cyclesList[0].Value);
+            }
+
+            finalList.Add(new KeyValuePair<Entity, float>(kvp.Key,focus));
+        }
+
+        finalList.Sort((pair1,pair2) => pair1.Value.CompareTo(pair2.Value));
+
+
+        return finalList;
+    }
+
+    public string ForecastStringHelper(float focusDown)
+    {
+        Dictionary<Entity,int> cyclesGroup = new();
+        List<KeyValuePair<Entity,float>> cyclesList = ReturnTurnOrderList(focusDown);
+
+        string finalString = new string("");
+
+        for(int i = cyclesList.Count - 1; i >= 0; i--)
+        {
+            finalString += cyclesList[i].Key.getFighterData.charName + "("+cyclesList[i].Value+")";
+            if (i != 0)
+            {
+                finalString +="->";
+            }
+        }
+
+        return finalString;
+    }
+
+    public void GenerateForecastTurnString()
+    {
+        Debug.Log("On -60 Focus: "+ForecastStringHelper(60));
+        Debug.Log("On -80 Focus: "+ForecastStringHelper(80));
+        Debug.Log("On -100 Focus: "+ForecastStringHelper(100));
     }
 
     public void CastSpell()
@@ -172,6 +260,7 @@ public class TurnOrderManager : MonoBehaviour
     public void AdvanceTurn()
     {
         int n = _combatants.Count - 1;
+        float focusPush = float.Parse(_turnEnd.options[_turnEnd.value].text);
 
         if(_combatants[n].isSpellUnit)
         {
@@ -182,25 +271,15 @@ public class TurnOrderManager : MonoBehaviour
         }
         else
         {
-            _combatants[n].getFighterData.FocusPush(float.Parse(_turnEnd.options[_turnEnd.value].text));
+            _combatants[n].getFighterData.FocusPush(focusPush);
             BattleManager.instance.DecrementBuff(0,_combatants[n]);
         }
             
-
-        List<int> cycleSort = new List<int>();
-        
-        for(int i = 0; i < _combatants.Count; i++)
-        {
-            //_combatants[i].getFighterData.DecreaseActionValue(_combatants[0].getFighterData.actionValue);
-            // _combatants[i].getFighterData.AddFocus(_combatants[0].getFighterData.cyclesNeeded);
-            cycleSort.Add(_combatants[i].getFighterData.MinCyclesNeeded());
-        }
-
-        cycleSort.Sort();
+        int minCycles = ReturnMinimumCycles();
 
         for(int i = 0; i < _combatants.Count; i++)
         {
-            _combatants[i].getFighterData.AddFocus(cycleSort[0]);
+            _combatants[i].getFighterData.AddFocus(minCycles);
         }
 
         _combatants.Sort();
@@ -257,7 +336,7 @@ public class TurnOrderManager : MonoBehaviour
             }
             //_turnList.GetChild(i).SetSiblingIndex(j);
             turnOrderString += _combatants[j].getFighterData.charName +"("+_combatants[j].getFighterData.cyclesNeeded+")";
-            if(j != _combatants.Count - 1)
+            if(j != 0)
             {
                 turnOrderString +="->";
             }
