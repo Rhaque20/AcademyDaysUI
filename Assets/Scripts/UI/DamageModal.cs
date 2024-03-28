@@ -91,6 +91,14 @@ public class DamageModal : MonoBehaviour
         return _attacker.GetFinalPower(i,false) - defender.GetFinalPower(i,true);
     }
 
+    public float RacialBane(EnumLibrary.Race targetRace, float baneMod, Player defender)
+    {
+        if (targetRace == EnumLibrary.Race.Empty || (defender.species1 != targetRace && defender.species2 != targetRace))
+            return 0f;
+        
+        return baneMod;
+    }
+
     public float ElementPowerMod(int i,Player defender)
     {
         if (i == 6)
@@ -209,6 +217,7 @@ public class DamageModal : MonoBehaviour
                     totalModifier += (TotalAdvantageMod((int)_attacker.attribute,(int)defender.attribute) + TotalAdvantageMod((int)attackingSkill.attribute,(int)defender.attribute));
                     totalModifier += (DamagePowerMod((int)attackingSkill.powerType,defender));
                     totalModifier += (ElementPowerMod((int)attackingSkill.attribute,defender));
+                    totalModifier += RacialBane(attackingSkill.racialBane,attackingSkill.racialBaneMod,defender);
                     Debug.Log("Attack is "+attack+" and final modifier is"+totalModifier+" scaled DEF is "+ScaleDEF(attackingSkill.defScale,defender));
                     finalDamage = (attack * attackingSkill.skillPower * totalModifier - ScaleDEF(attackingSkill.defScale,defender)) - UnityEngine.Random.Range(1,10f);
                     finalDamage = Mathf.Max(finalDamage,1);

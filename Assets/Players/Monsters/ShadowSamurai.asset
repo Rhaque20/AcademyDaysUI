@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe0fa317705a884b979740d87165766, type: 3}
+  m_Name: ShadowSamurai
+  m_EditorClassIdentifier: 
+  charName: Shadow Samurai
+  portrait: {fileID: 21300000, guid: 811c93f36434f114495df5a36d984d1b, type: 3}
+  attribute: 5
+  species1: 7
+  species2: 4
+  useName: 1
+  unitType: 1
+  level: 5
+  stats:
+  - 300
+  - 60
+  - 150
+  - 35
+  - 25
+  - 40
+  - 70
+  - 80
+  - 50
+  - 0
+  - 0
+  statBoosts:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  otherStats:
+  - 0.15
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  skillsList:
+  - {fileID: 11400000, guid: 7bd992dd7e7b32141b6a9c75c3a54e0b, type: 2}
+  - {fileID: 11400000, guid: cdb9bfa077e07fa4c902a2ea64e3c0f9, type: 2}
+  - {fileID: 11400000, guid: fec50b3ef6943214083e6ff0723ad162, type: 2}
+  quicken: 0
+  delay: 0
+  stop: 0
+  _cyclesNeeded: 15
+  elementalBoost:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  elementalRes:
+  - -0.15
+  - 0
+  - 0
+  - 0
+  - -0.2
+  - 0.5
+  damagePowerBoost:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  damagePowerRes:
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - -0.3

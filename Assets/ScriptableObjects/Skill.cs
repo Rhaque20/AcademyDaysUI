@@ -16,4 +16,7 @@ public class Skill : ScriptableObject
     public int comboCount = 0;
     [NamedArrayAttribute (new string[] {"Ignore Def Rate","Back Def Rate","Side Def Rate"})]
     public float[] defIgnore = new float[3];
+
+    public EnumLibrary.Race racialBane = EnumLibrary.Race.Empty;
+    public float racialBaneMod = 0.0f;
 }
