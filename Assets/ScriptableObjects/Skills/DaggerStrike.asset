@@ -24,5 +24,7 @@ MonoBehaviour:
   comboCount: 0
   defIgnore:
   - 0
+  - 0.15
   - 0
-  - 0
+  racialBane: 0
+  racialBaneMod: 0

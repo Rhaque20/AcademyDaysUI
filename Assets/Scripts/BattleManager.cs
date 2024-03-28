@@ -21,7 +21,7 @@ public class BattleManager : MonoBehaviour
     public GameObject attackerUI = null,defenderUI = null, toggleCharPrefab;
     [SerializeField]private GameObject _damageModal;
     [SerializeField]private BuffDebuffModal _buffDebuffModal;
-    public Transform listContent,effectContent,targetList,statusList;
+    public Transform listContent,effectApplyToggleList,damageModalToggleList,statusList;
     public TMP_Text display;
 
     public bool selectingAttacker = false;
@@ -59,6 +59,7 @@ public class BattleManager : MonoBehaviour
     {
         Debug.Log("Starting battlemanager");
         GameObject g,activeTemp;
+        ToggleCharacter toggleChar;
         int i = 0;
         foreach(GameObject allies in fighterList)
         {
@@ -67,17 +68,20 @@ public class BattleManager : MonoBehaviour
             // g.GetComponent<Transform>().localScale = new Vector3(1f,1f,1f);
             // activeTemp = listContent.GetChild(listContent.childCount - 1).gameObject;
             g = Instantiate(toggleCharPrefab);
-            g.GetComponent<ToggleCharacter>().Initialize(combatants[i]);
-            g.transform.SetParent(effectContent);
+            toggleChar = g.GetComponent<ToggleCharacter>();
+            toggleChar.Initialize(combatants[i],ToggleCharacter.ToggleType.TurnOrderToggle);
+            g.transform.SetParent(effectApplyToggleList);
             g.GetComponent<Transform>().localScale = new Vector3(1f,1f,1f);
 
             g = Instantiate(toggleCharPrefab);
-            g.GetComponent<ToggleCharacter>().Initialize(combatants[i]);
-            g.transform.SetParent(targetList);
+            toggleChar = g.GetComponent<ToggleCharacter>();
+            toggleChar.Initialize(combatants[i],ToggleCharacter.ToggleType.DamageCalc);
+            g.transform.SetParent(damageModalToggleList);
             g.GetComponent<Transform>().localScale = new Vector3(1f,1f,1f);
 
             g = Instantiate(toggleCharPrefab);
-            g.GetComponent<ToggleCharacter>().Initialize(combatants[i]);
+            toggleChar = g.GetComponent<ToggleCharacter>();
+            toggleChar.Initialize(combatants[i],ToggleCharacter.ToggleType.Character);
             g.transform.SetParent(statusList);
             g.GetComponent<Transform>().localScale = new Vector3(1f,1f,1f);
 

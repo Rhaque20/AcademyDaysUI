@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb94c236086aca142a0be9ea54ffcd55, type: 3}
-  m_Name: HydraBite
+  m_Name: Smash
   m_EditorClassIdentifier: 
   skillTag1: 2
   skillTag2: 0

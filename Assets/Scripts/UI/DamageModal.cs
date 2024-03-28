@@ -157,13 +157,13 @@ public class DamageModal : MonoBehaviour
         return attack;
     }
 
-    public float ScaleDEF(EnumLibrary.DEFScale defScale, Player defender)
+    public float ScaleDEF(EnumLibrary.DEFScale defScale, Player defender, int position)
     {
         Skill attackingSkill = _attacker.skillsList[skillSelection.value];
         if (defScale == EnumLibrary.DEFScale.Physical)
-            return defender.GetFinalStat((int)EnumLibrary.Stats.PDEF) * (1 - (_backStabtoggle.isOn ? Mathf.Max(0.15f,attackingSkill.defIgnore[1]) : 0.0f));
+            return defender.GetFinalStat((int)EnumLibrary.Stats.PDEF) * (1 - attackingSkill.defIgnore[position]);
         else if (defScale == EnumLibrary.DEFScale.Magical)
-            return defender.GetFinalStat((int)EnumLibrary.Stats.MDEF) * (1 - (_backStabtoggle.isOn ? Mathf.Max(0.15f,attackingSkill.defIgnore[1]) : 0.0f));
+            return defender.GetFinalStat((int)EnumLibrary.Stats.MDEF) * (1 - attackingSkill.defIgnore[position]);
         return 0f;
     }
 
@@ -218,8 +218,8 @@ public class DamageModal : MonoBehaviour
                     totalModifier += (DamagePowerMod((int)attackingSkill.powerType,defender));
                     totalModifier += (ElementPowerMod((int)attackingSkill.attribute,defender));
                     totalModifier += RacialBane(attackingSkill.racialBane,attackingSkill.racialBaneMod,defender);
-                    Debug.Log("Attack is "+attack+" and final modifier is"+totalModifier+" scaled DEF is "+ScaleDEF(attackingSkill.defScale,defender));
-                    finalDamage = (attack * attackingSkill.skillPower * totalModifier - ScaleDEF(attackingSkill.defScale,defender)) - UnityEngine.Random.Range(1,10f);
+                    Debug.Log("Attack is "+attack+" and final modifier is"+totalModifier+" scaled DEF is "+ScaleDEF(attackingSkill.defScale,defender,defenderList[i].GetDropDownValue(0)));
+                    finalDamage = (attack * attackingSkill.skillPower * totalModifier - ScaleDEF(attackingSkill.defScale,defender,defenderList[i].GetDropDownValue(0))) - UnityEngine.Random.Range(1,10f);
                     finalDamage = Mathf.Max(finalDamage,1);
                     _damageLog.GetChild(i).gameObject.SetActive(true);
                     _damageLog.GetChild(i).GetComponent<TMP_Text>().SetText(defender.charName+"'s AC is <b>"+FinalAC(_attacker,defender)+

@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe0fa317705a884b979740d87165766, type: 3}
+  m_Name: ShadowBlossom
+  m_EditorClassIdentifier: 
+  charName: Shadow Blossom
+  portrait: {fileID: 21300000, guid: 4f23dccbee8f88745af54e52175ea595, type: 3}
+  attribute: 0
+  species1: 7
+  species2: 6
+  useName: 1
+  unitType: 1
+  level: 5
+  stats:
+  - 150
+  - 60
+  - 100
+  - 35
+  - 85
+  - 60
+  - 70
+  - 55
+  - 50
+  - 0
+  - 0
+  statBoosts:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  otherStats:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  skillsList:
+  - {fileID: 11400000, guid: c63bc8f47630093449cc2fe885329551, type: 2}
+  - {fileID: 11400000, guid: 381a058559aaab0409c4ce629e32d826, type: 2}
+  - {fileID: 11400000, guid: ca2ed55a6eecb8740b82c727ca236b1c, type: 2}
+  quicken: 0
+  delay: 0
+  stop: 0
+  _cyclesNeeded: 15
+  elementalBoost:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  elementalRes:
+  - -0.15
+  - 0
+  - 0
+  - 0
+  - 0.2
+  - 0.15
+  damagePowerBoost:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  damagePowerRes:
+  - -0.15
+  - 0
+  - -0.15
+  - 0
+  - 0

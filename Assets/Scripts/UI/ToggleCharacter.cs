@@ -7,18 +7,28 @@ using TMPro;
 public class ToggleCharacter : MonoBehaviour
 {
     //public GameObject statusPrefab;
+
+    public enum ToggleType{TurnOrderToggle,Character,DamageCalc}
     Image backDrop,profileIcon,elementIcon;
     TMP_Text name,actionVal;
     GameObject statusList;
     Toggle curToggle;
     public Entity heldEntity;
-    public int toggleType = 0;
     public bool hasEntity = false;
+    [SerializeField]private ToggleType _toggleType = ToggleType.TurnOrderToggle;
+    [SerializeField]private GameObject _damageCalcDropDowns;
+    TMP_Dropdown _stabPosition,_heightPosition;
     // Start is called before the first frame update
 
     public bool isOn
     {
         get{return curToggle.isOn;}
+    }
+
+    public ToggleType toggleType
+    {
+        get{return _toggleType;}
+        set{_toggleType = value;}
     }
 
     void Start()
@@ -34,13 +44,35 @@ public class ToggleCharacter : MonoBehaviour
         name = transform.GetChild(3).GetComponent<TMP_Text>();
         statusList = transform.GetChild(4).gameObject;
         actionVal = transform.GetChild(5).GetComponent<TMP_Text>();
+        _damageCalcDropDowns = transform.GetChild(6).gameObject;
+        _stabPosition = _damageCalcDropDowns.transform.GetChild(0).GetComponent<TMP_Dropdown>();
+        _heightPosition = _damageCalcDropDowns.transform.GetChild(1).GetComponent<TMP_Dropdown>();
         curToggle = GetComponent<Toggle>();
     }
 
     public void Initialize(Entity entireEntity)
     {
+        Debug.Log("Called regular initiatlize");
         GetParts();
         InputData(entireEntity);
+    }
+
+    public void Initialize(Entity entireEntity, ToggleType toggleType)
+    {
+        GetParts();
+        InputData(entireEntity);
+
+        _toggleType = toggleType;
+        Debug.Log("Setting this toggle to damagecalc "+(_toggleType == ToggleType.DamageCalc));
+        _damageCalcDropDowns.SetActive(_toggleType == ToggleType.DamageCalc);
+    }
+
+    public int GetDropDownValue(int index)
+    {
+        if(index == 0)
+            return _stabPosition.value;
+        else
+            return _heightPosition.value;
     }
 
     public void Selected()
@@ -53,7 +85,7 @@ public class ToggleCharacter : MonoBehaviour
         {
             backDrop.color = Color.white;
         }
-        if (toggleType == 1 && BattleManager.instance.selectingAttacker)
+        if (_toggleType == ToggleType.TurnOrderToggle && BattleManager.instance.selectingAttacker)
         {
             BattleManager.instance.SetFighter(heldEntity);
             //BattleManager.instance.SelectingAttacker();
@@ -72,6 +104,7 @@ public class ToggleCharacter : MonoBehaviour
         heldEntity = spell;
         actionVal.SetText(spell.getFighterData.focus.ToString());
         spell.getFighterData.FocusPush(-999);
+        toggleType = ToggleType.Character;
     }
 
 

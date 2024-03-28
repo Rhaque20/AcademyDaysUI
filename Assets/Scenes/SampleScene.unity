@@ -28281,16 +28281,16 @@ MonoBehaviour:
   - {fileID: 6670753516000315971, guid: f00d663922c1389468671e93dccd78d3, type: 3}
   - {fileID: 2802880010235534178, guid: 9dd8e0c38947fca4390e5f48560fcbfa, type: 3}
   - {fileID: 2802880010235534178, guid: 9dd8e0c38947fca4390e5f48560fcbfa, type: 3}
-  - {fileID: 2802880010235534178, guid: 51d0584053cd04b40a6714141cbf3f88, type: 3}
+  - {fileID: 2802880010235534178, guid: ea24fae42e8a0e749814a24b4c506b4d, type: 3}
   - {fileID: 2802880010235534178, guid: fd9063cf19869484ebcae35937415ffd, type: 3}
   attackerUI: {fileID: 312110236}
   defenderUI: {fileID: 1852539033}
-  toggleCharPrefab: {fileID: 5564848278103981840, guid: 8ca41f1907273d24690df9b6d0eee6a7, type: 3}
+  toggleCharPrefab: {fileID: 5564848278103981840, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
   _damageModal: {fileID: 96356056}
   _buffDebuffModal: {fileID: 1581189402}
   listContent: {fileID: 2018228036}
-  effectContent: {fileID: 1573974310}
-  targetList: {fileID: 1659638241}
+  effectApplyToggleList: {fileID: 1573974310}
+  damageModalToggleList: {fileID: 1659638241}
   statusList: {fileID: 1346933402}
   display: {fileID: 1634337110}
   selectingAttacker: 0
@@ -30801,7 +30801,7 @@ GameObject:
   - component: {fileID: 1507681911}
   - component: {fileID: 1507681913}
   m_Layer: 0
-  m_Name: SelectionModal
+  m_Name: EffectApplyModal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
