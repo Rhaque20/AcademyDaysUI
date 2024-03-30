@@ -10,10 +10,10 @@ PrefabInstance:
     - target: {fileID: 1392288014193339572, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
       propertyPath: mainFighter
       value: 
-      objectReference: {fileID: 11400000, guid: 065ca92aa2e1d5c49b86063a1472255c, type: 2}
+      objectReference: {fileID: 11400000, guid: 255c5b6b24cd89d44ba43f20ef6b97da, type: 2}
     - target: {fileID: 5564848278103981840, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
       propertyPath: m_Name
-      value: Leucosia
+      value: Leucosia Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5564848278103981843, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
       propertyPath: m_Pivot.x

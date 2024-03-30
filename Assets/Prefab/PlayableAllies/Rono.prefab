@@ -94,7 +94,7 @@ PrefabInstance:
     - target: {fileID: 4598552567752540464, guid: 0b4d2d4976651844aadbdddcb1c3dbfc, type: 3}
       propertyPath: mainFighter
       value: 
-      objectReference: {fileID: 11400000, guid: 3d0d0a80800d4f64ba12e8a514c9ce7d, type: 2}
+      objectReference: {fileID: 11400000, guid: 199b754203b547e4a9a762eb62fecfe3, type: 2}
     - target: {fileID: 8235460696772498955, guid: 0b4d2d4976651844aadbdddcb1c3dbfc, type: 3}
       propertyPath: m_Name
       value: Rono

@@ -94,7 +94,7 @@ PrefabInstance:
     - target: {fileID: 4598552567752540464, guid: 0b4d2d4976651844aadbdddcb1c3dbfc, type: 3}
       propertyPath: mainFighter
       value: 
-      objectReference: {fileID: 11400000, guid: eb1f1c98ef0ddc242bc4db3f9f3a3fd2, type: 2}
+      objectReference: {fileID: 11400000, guid: 11a554a3479d76f4893410af07617fa9, type: 2}
     - target: {fileID: 8235460696772498955, guid: 0b4d2d4976651844aadbdddcb1c3dbfc, type: 3}
       propertyPath: m_Name
       value: Ronin

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fe0fa317705a884b979740d87165766, type: 3}
+  m_Script: {fileID: 11500000, guid: 2934b30848cc77b4992d035a30c1bd76, type: 3}
   m_Name: Tako
   m_EditorClassIdentifier: 
   charName: Tako

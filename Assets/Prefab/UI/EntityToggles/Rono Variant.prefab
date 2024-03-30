@@ -10,10 +10,10 @@ PrefabInstance:
     - target: {fileID: 1392288014193339572, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
       propertyPath: mainFighter
       value: 
-      objectReference: {fileID: 11400000, guid: 3d0d0a80800d4f64ba12e8a514c9ce7d, type: 2}
+      objectReference: {fileID: 11400000, guid: 199b754203b547e4a9a762eb62fecfe3, type: 2}
     - target: {fileID: 5564848278103981840, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
       propertyPath: m_Name
-      value: Rono
+      value: Rono Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5564848278103981843, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
       propertyPath: m_Pivot.x

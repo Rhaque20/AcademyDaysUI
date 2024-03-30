@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fe0fa317705a884b979740d87165766, type: 3}
+  m_Script: {fileID: 11500000, guid: 42507906649e40547ac16434c8c9faab, type: 3}
   m_Name: Ronin
   m_EditorClassIdentifier: 
   charName: Ronin
   portrait: {fileID: 21300000, guid: 548f695ace01956429727601c046c86e, type: 3}
   attribute: 5
-  species1: 5
+  species1: 1
   species2: 0
   useName: 1
   unitType: 0

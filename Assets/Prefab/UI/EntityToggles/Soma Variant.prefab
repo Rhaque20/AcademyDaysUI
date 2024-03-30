@@ -10,10 +10,10 @@ PrefabInstance:
     - target: {fileID: 1392288014193339572, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
       propertyPath: mainFighter
       value: 
-      objectReference: {fileID: 11400000, guid: fba5211e98fda814a90b5b87a9ad7e92, type: 2}
+      objectReference: {fileID: 11400000, guid: 77bb34972d5b72048b8779c5048d5071, type: 2}
     - target: {fileID: 5564848278103981840, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
       propertyPath: m_Name
-      value: Soma
+      value: Soma Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5564848278103981843, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
       propertyPath: m_Pivot.x

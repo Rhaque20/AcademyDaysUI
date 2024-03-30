@@ -94,7 +94,7 @@ PrefabInstance:
     - target: {fileID: 4598552567752540464, guid: 0b4d2d4976651844aadbdddcb1c3dbfc, type: 3}
       propertyPath: mainFighter
       value: 
-      objectReference: {fileID: 11400000, guid: ef33cee4831f3a54081d156f5b0874cd, type: 2}
+      objectReference: {fileID: 11400000, guid: 7e07e35c93ddb8a4da934eac8f68b6c7, type: 2}
     - target: {fileID: 8235460696772498955, guid: 0b4d2d4976651844aadbdddcb1c3dbfc, type: 3}
       propertyPath: m_Name
       value: Plumeria

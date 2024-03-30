@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fe0fa317705a884b979740d87165766, type: 3}
+  m_Script: {fileID: 11500000, guid: 42507906649e40547ac16434c8c9faab, type: 3}
   m_Name: Joseph
   m_EditorClassIdentifier: 
   charName: Joseph
-  speed: 70
   portrait: {fileID: 21300000, guid: 7683fd318ade6cb40bf16aa23b696707, type: 3}
   attribute: 4
   species1: 1
@@ -22,23 +21,40 @@ MonoBehaviour:
   unitType: 0
   level: 1
   stats:
-  - 164
-  - 55
-  - 65
-  - 39
-  - 59
-  - 39
-  - 70
-  - 19
-  - 53
+  - 96
+  - 48
+  - 32
+  - 60
+  - 60
+  - 60
+  - 60
+  - 24
+  - 72
   - 4
   - 3
+  statBoosts:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  otherStats:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   skillsList:
   - {fileID: 11400000, guid: 8ca0b98e120769a4b8ca9ef9a154e5a6, type: 2}
   - {fileID: 11400000, guid: 51cfd7b4c26a2184483e598f02a49920, type: 2}
-  quicken: 0
-  delay: 0
-  stop: 0
+  _buffCycles: 0
   _cyclesNeeded: 0
   elementalBoost:
   - 0

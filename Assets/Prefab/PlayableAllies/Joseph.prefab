@@ -94,7 +94,7 @@ PrefabInstance:
     - target: {fileID: 4598552567752540464, guid: 0b4d2d4976651844aadbdddcb1c3dbfc, type: 3}
       propertyPath: mainFighter
       value: 
-      objectReference: {fileID: 11400000, guid: 0f1e2372f458efd4a88cea2e59b5a867, type: 2}
+      objectReference: {fileID: 11400000, guid: 307dfef766a91744db8077c1b2ebf009, type: 2}
     - target: {fileID: 8235460696772498955, guid: 0b4d2d4976651844aadbdddcb1c3dbfc, type: 3}
       propertyPath: m_Name
       value: Joseph

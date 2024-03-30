@@ -94,7 +94,7 @@ PrefabInstance:
     - target: {fileID: 4598552567752540464, guid: 0b4d2d4976651844aadbdddcb1c3dbfc, type: 3}
       propertyPath: mainFighter
       value: 
-      objectReference: {fileID: 11400000, guid: fba5211e98fda814a90b5b87a9ad7e92, type: 2}
+      objectReference: {fileID: 11400000, guid: 77bb34972d5b72048b8779c5048d5071, type: 2}
     - target: {fileID: 8235460696772498955, guid: 0b4d2d4976651844aadbdddcb1c3dbfc, type: 3}
       propertyPath: m_Name
       value: Soma

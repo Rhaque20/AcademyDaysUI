@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fe0fa317705a884b979740d87165766, type: 3}
+  m_Script: {fileID: 11500000, guid: 42507906649e40547ac16434c8c9faab, type: 3}
   m_Name: Rono
   m_EditorClassIdentifier: 
   charName: Rono
@@ -56,7 +56,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c4931b1ab069174ba23315880758225, type: 2}
   - {fileID: 11400000, guid: 6ea0988ab3a07cd4a949c8b60e132f81, type: 2}
   _buffCycles: 0
-  _cyclesNeeded: -1
+  _cyclesNeeded: 17
   elementalBoost:
   - 0
   - 0
