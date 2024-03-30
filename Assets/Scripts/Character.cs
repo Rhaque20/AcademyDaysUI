@@ -7,7 +7,7 @@ using System;
 
 public class Character : MonoBehaviour
 {
-    [SerializeField]Player p = null;
+    [SerializeField]Fighter p = null;
     [SerializeField]protected float speed, focus = 0, drainrate = 0.01f;
     [SerializeField]protected float quicken = 0, delay = 0, stop = 0;
 

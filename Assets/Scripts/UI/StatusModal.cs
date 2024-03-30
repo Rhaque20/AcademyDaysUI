@@ -14,7 +14,7 @@ public class StatusModal : MonoBehaviour
     TMP_Dropdown statusType;
     bool initializedCurrent = false;
     [SerializeField]Toggle onUse, elementPowerToggle;
-    Player activeFighter;
+    Fighter activeFighter;
 
     [SerializeField]TMP_InputField turnDuration, useAmount;
 

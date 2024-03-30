@@ -7,7 +7,7 @@ using TMPro;
 
 public class Entity : MonoBehaviour,IComparable<Entity>
 {
-    [SerializeField]Player mainFighter,subFighter;
+    [SerializeField]Fighter mainFighter,subFighter;
     bool mainChar = true;
     public int index;
     TMP_Text subName;
@@ -32,7 +32,7 @@ public class Entity : MonoBehaviour,IComparable<Entity>
         get{return getFighterData.actionValue;}
     }
 
-    public Player getFighterData
+    public Fighter getFighterData
     {
         get
         {
@@ -52,21 +52,21 @@ public class Entity : MonoBehaviour,IComparable<Entity>
     {
         
         mainFighter = origin.getFighterData;
-        subFighter = Player.CreateInstance<Player>();
+        subFighter = Fighter.CreateInstance<Fighter>();
         subFighter.CreateSpellUnit(spellName,spellSpeed);
         mainChar = false;
         isSpellUnit = true;
         _entityOrigin = origin;
     }
 
-    public void EditSpellUnit(Player caster, string spellName, float spellSpeed)
+    public void EditSpellUnit(Fighter caster, string spellName, float spellSpeed)
     {
         mainFighter = caster;
         subFighter.charName = spellName;
         subFighter.speed = spellSpeed;
     }
 
-    public void SetUnit(Player dupeTarget)
+    public void SetUnit(Fighter dupeTarget)
     {
         mainFighter = dupeTarget;
     }

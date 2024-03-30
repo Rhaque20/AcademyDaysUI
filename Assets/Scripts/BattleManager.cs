@@ -14,7 +14,7 @@ public class BattleManager : MonoBehaviour
     public TMP_Dropdown dropdown;
     public TMP_InputField damageInput;
 
-    Player attacker,defender;
+    Fighter attacker,defender;
     Entity _activeEntity;
     public List<GameObject> fighterList = new List<GameObject>();
 
@@ -33,7 +33,7 @@ public class BattleManager : MonoBehaviour
         instance = this;
     }
 
-    public Player ReturnFighter()
+    public Fighter ReturnFighter()
     {
         return attacker;
     }
@@ -99,7 +99,7 @@ public class BattleManager : MonoBehaviour
     public void SetFighter(Entity SelectedEntity)
     {
         GameObject uiElement;
-        Player fighter = SelectedEntity.getFighterData;
+        Fighter fighter = SelectedEntity.getFighterData;
         _activeEntity = SelectedEntity;
         if (dropdown.value == 0)
         {

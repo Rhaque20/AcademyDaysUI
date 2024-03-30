@@ -8,7 +8,7 @@ using System;
 
 public class TurnOrderManager : MonoBehaviour
 {
-    [SerializeField]Player _testEntity = null;
+    [SerializeField]Fighter _testEntity = null;
     [SerializeField]Transform _turnList;
     List<Entity> _combatants = new List<Entity>();
     [SerializeField]private TMP_InputField _actionPush,_spellName,_spellSpeed;
@@ -40,14 +40,14 @@ public class TurnOrderManager : MonoBehaviour
         {
             GameObject temp = Instantiate(g);
             Entity e = temp.GetComponent<Entity>();
-            Player temporary = null;
+            Fighter temporary = null;
             //e.getFighterData.GenerateActionValue();
 
-            if (e.getFighterData.unitType == Player.UnitType.Enemy)
+            if (e.getFighterData.unitType == Fighter.UnitType.Enemy)
             {
                 temporary = new();
 
-                temporary.DupePlayer(e.getFighterData);
+                temporary.DupeFighter(e.getFighterData);
                 temporary.GenerateActionValue();
                 
                 if (_dupeEnemies.ContainsKey(e.getFighterData.charName))
@@ -84,7 +84,7 @@ public class TurnOrderManager : MonoBehaviour
 
             // //Created spell units
             temp = Instantiate(g);
-            if(e.getFighterData.unitType == Player.UnitType.Player)
+            if(e.getFighterData.unitType == Fighter.UnitType.Player)
             {
                 temp.name = e.getFighterData.charName+" Spell Unit";
                 
@@ -135,7 +135,7 @@ public class TurnOrderManager : MonoBehaviour
     {
         Dictionary<Entity,int> cyclesGroup = new();
         List<KeyValuePair<Entity,int>> cyclesList;
-        Player p;
+        Fighter p;
         Entity activeEntity = _combatants[0];
         for(int i = 0; i < _combatants.Count; i++)
         {

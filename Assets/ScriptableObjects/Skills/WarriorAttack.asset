@@ -16,7 +16,7 @@ MonoBehaviour:
   skillTag2: 0
   powerType: 0
   attribute: 6
-  atkScale: 1
+  atkScale: 3
   defScale: 1
   skillPower: 1
   isMultiHit: 0

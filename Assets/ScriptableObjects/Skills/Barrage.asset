@@ -18,7 +18,7 @@ MonoBehaviour:
   attribute: 4
   atkScale: 8
   defScale: 2
-  skillPower: 1.5
+  skillPower: 3
   isMultiHit: 0
   comboDMGRate: 0
   comboCount: 0
@@ -26,3 +26,5 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  racialBane: 0
+  racialBaneMod: 0

@@ -18,7 +18,7 @@ public class DamageModal : MonoBehaviour
     public TMP_Dropdown skillAttrDropDown, skillPowerDropDown, skillSelection;
     SelectionModal _selectionModal;
 
-    Player _attacker;
+    Fighter _attacker;
 
     [SerializeField]Toggle _backStabtoggle;
     public void Initialize(List<Entity> combatants)
@@ -38,7 +38,7 @@ public class DamageModal : MonoBehaviour
 
     }
 
-    public void SetAttackerProfile(Player attacker)
+    public void SetAttackerProfile(Fighter attacker)
     {
         if(_statusBlock == null)
             _statusBlock = transform.GetChild(1);
@@ -83,7 +83,7 @@ public class DamageModal : MonoBehaviour
     }
 
 
-    public float DamagePowerMod(int i,Player defender)
+    public float DamagePowerMod(int i,Fighter defender)
     {
         
         if (i == 6)
@@ -91,7 +91,7 @@ public class DamageModal : MonoBehaviour
         return _attacker.GetFinalPower(i,false) - defender.GetFinalPower(i,true);
     }
 
-    public float RacialBane(EnumLibrary.Race targetRace, float baneMod, Player defender)
+    public float RacialBane(EnumLibrary.Race targetRace, float baneMod, Fighter defender)
     {
         if (targetRace == EnumLibrary.Race.Empty || (defender.species1 != targetRace && defender.species2 != targetRace))
             return 0f;
@@ -99,14 +99,14 @@ public class DamageModal : MonoBehaviour
         return baneMod;
     }
 
-    public float ElementPowerMod(int i,Player defender)
+    public float ElementPowerMod(int i,Fighter defender)
     {
         if (i == 6)
             return 0f;
         return _attacker.GetFinalElemental(i,false) - defender.GetFinalElemental(i,true) ;
     }
 
-    public float ScaleATK(EnumLibrary.ATKScale scaleFormula, Player attacker)
+    public float ScaleATK(EnumLibrary.ATKScale scaleFormula, Fighter attacker)
     {
         float attack = 0f;
 
@@ -135,11 +135,11 @@ public class DamageModal : MonoBehaviour
             break;
             case EnumLibrary.ATKScale.NimbleWarrior:
                 Debug.Log("PATK is "+PATK+" AGI is"+AGI+" DEX is "+DEX);
-                attack = 0.9f * (PATK + AGI/2 + DEX + AGI * level/100f + DEX/4);
+                attack = 0.75f * (PATK + AGI/2 + DEX + AGI * level/100f + DEX/4);
             break;
             case EnumLibrary.ATKScale.NimbleThief:
                 Debug.Log("PATK is "+PATK+" AGI is"+AGI+" DEX is "+DEX);
-                attack = 0.85f * (PATK + AGI/2 + DEX + AGI * level/100f + DEX/4);
+                attack = 0.65f * (PATK + AGI/2 + DEX + AGI * level/100f + DEX/4);
             break;
             case EnumLibrary.ATKScale.Archer:
                 attack = 0.7f * (PATK + DEX);
@@ -157,7 +157,7 @@ public class DamageModal : MonoBehaviour
         return attack;
     }
 
-    public float ScaleDEF(EnumLibrary.DEFScale defScale, Player defender, int position)
+    public float ScaleDEF(EnumLibrary.DEFScale defScale, Fighter defender, int position)
     {
         Skill attackingSkill = _attacker.skillsList[skillSelection.value];
         if (defScale == EnumLibrary.DEFScale.Physical)
@@ -167,7 +167,7 @@ public class DamageModal : MonoBehaviour
         return 0f;
     }
 
-    public string FinalAC(Player attacker, Player defender)
+    public string FinalAC(Fighter attacker, Fighter defender)
     {
         float finalAC = 4 + (defender.GetFinalStat((int)EnumLibrary.Stats.AGI) - attacker.GetFinalStat((int)EnumLibrary.Stats.TEC)/2f) * 0.12f;
         finalAC /= 100f;
@@ -179,7 +179,7 @@ public class DamageModal : MonoBehaviour
         return ((finalAC * 20) + 1f).ToString("F0");
     }
 
-    public string CritChance(Player attacker, Player defender)
+    public string CritChance(Fighter attacker, Fighter defender)
     {
         float finalCrit = Mathf.Sqrt(attacker.GetFinalStat((int)EnumLibrary.Stats.CRIT))*2 - Mathf.Sqrt(defender.GetFinalStat((int)EnumLibrary.Stats.LUCK))/2;
         finalCrit /= 100f;
@@ -210,7 +210,7 @@ public class DamageModal : MonoBehaviour
                     continue;
                 }
 
-                Player defender = defenderList[i].heldEntity.getFighterData;
+                Fighter defender = defenderList[i].heldEntity.getFighterData;
 
                 if (attackingSkill.skillTag1 == EnumLibrary.SkillType.Damage || attackingSkill.skillTag2 == EnumLibrary.SkillType.Damage)
                 {

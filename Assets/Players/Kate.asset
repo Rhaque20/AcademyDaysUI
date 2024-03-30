@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Kate
   m_EditorClassIdentifier: 
   charName: Kate
-  portrait: {fileID: 21300000, guid: 7683fd318ade6cb40bf16aa23b696707, type: 3}
+  portrait: {fileID: 21300000, guid: 38ad4dd0d873b9d4ea772e9789a675d2, type: 3}
   attribute: 4
   species1: 1
   species2: 0

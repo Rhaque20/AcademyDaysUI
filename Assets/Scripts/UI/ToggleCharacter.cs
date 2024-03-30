@@ -96,7 +96,7 @@ public class ToggleCharacter : MonoBehaviour
     {
         GetParts();
         //Caster details
-        Player combatant = spell.entityOrigin.getFighterData;
+        Fighter combatant = spell.entityOrigin.getFighterData;
         profileIcon.sprite = combatant.portrait;
         elementIcon.sprite = BattleManager.instance.elementIcons[combatant.elementInt];
         // Get spell data
@@ -110,7 +110,7 @@ public class ToggleCharacter : MonoBehaviour
 
     public void InputData(Entity entireEntity)
     {
-        Player combatant = entireEntity.getFighterData;
+        Fighter combatant = entireEntity.getFighterData;
         if(combatant == null)
         {
             Debug.Log("No combatant in "+entireEntity.name);
