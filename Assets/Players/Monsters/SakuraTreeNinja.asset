@@ -23,7 +23,7 @@ MonoBehaviour:
   stats:
   - 105
   - 45
-  - 60
+  - 40
   - 60
   - 80
   - 30
@@ -54,9 +54,7 @@ MonoBehaviour:
   skillsList:
   - {fileID: 11400000, guid: a9ace7e577a091743807a5a7804ec953, type: 2}
   - {fileID: 11400000, guid: 381a058559aaab0409c4ce629e32d826, type: 2}
-  quicken: 0
-  delay: 0
-  stop: 0
+  _buffCycles: 0
   _cyclesNeeded: 15
   elementalBoost:
   - 0

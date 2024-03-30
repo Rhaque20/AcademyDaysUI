@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Plumeria
   m_EditorClassIdentifier: 
   charName: Plumeria
-  speed: 65
   portrait: {fileID: 21300000, guid: df4a59f8d36dd9943b1245182fbbf0a5, type: 3}
   attribute: 3
   species1: 4
@@ -22,11 +21,30 @@ MonoBehaviour:
   unitType: 0
   level: 1
   stats:
+  - 96
+  - 48
+  - 32
+  - 60
+  - 60
+  - 60
+  - 60
+  - 24
+  - 72
+  - 4
+  - 3
+  statBoosts:
   - 0
   - 0
   - 0
   - 0
   - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  otherStats:
   - 0
   - 0
   - 0
@@ -34,9 +52,7 @@ MonoBehaviour:
   - 0
   - 0
   skillsList: []
-  quicken: 0
-  delay: 0
-  stop: 0
+  _buffCycles: 0
   _cyclesNeeded: 0
   elementalBoost:
   - 0

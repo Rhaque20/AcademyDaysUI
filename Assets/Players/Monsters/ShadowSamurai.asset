@@ -23,7 +23,7 @@ MonoBehaviour:
   stats:
   - 300
   - 60
-  - 150
+  - 100
   - 35
   - 25
   - 40
@@ -55,9 +55,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7bd992dd7e7b32141b6a9c75c3a54e0b, type: 2}
   - {fileID: 11400000, guid: cdb9bfa077e07fa4c902a2ea64e3c0f9, type: 2}
   - {fileID: 11400000, guid: fec50b3ef6943214083e6ff0723ad162, type: 2}
-  quicken: 0
-  delay: 0
-  stop: 0
+  _buffCycles: 0
   _cyclesNeeded: 15
   elementalBoost:
   - 0

@@ -188,7 +188,7 @@ public class TurnOrderManager : MonoBehaviour
 
         for(int i = cyclesList.Count - 1; i >= 0; i--)
         {
-            finalString += cyclesList[i].Key.getFighterData.charName + "("+cyclesList[i].Value+")";
+            finalString += cyclesList[i].Key.getFighterData.charName + "("+Mathf.Round(cyclesList[i].Value)+")";
             if (i != 0)
             {
                 finalString +="->";

@@ -21,15 +21,15 @@ MonoBehaviour:
   unitType: 0
   level: 1
   stats:
-  - 105
-  - 69
-  - 34
-  - 57
-  - 36
-  - 61
-  - 90
-  - 45
-  - 52
+  - 96
+  - 48
+  - 32
+  - 60
+  - 60
+  - 60
+  - 60
+  - 24
+  - 72
   - 4
   - 3
   statBoosts:
@@ -55,10 +55,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8ca0b98e120769a4b8ca9ef9a154e5a6, type: 2}
   - {fileID: 11400000, guid: 4c4931b1ab069174ba23315880758225, type: 2}
   - {fileID: 11400000, guid: 6ea0988ab3a07cd4a949c8b60e132f81, type: 2}
-  quicken: 0
-  delay: 0
-  stop: 0
-  _cyclesNeeded: 11
+  _buffCycles: 0
+  _cyclesNeeded: -1
   elementalBoost:
   - 0
   - 0
