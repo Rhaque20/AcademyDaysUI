@@ -54,9 +54,7 @@ MonoBehaviour:
   skillsList:
   - {fileID: 11400000, guid: 8ca0b98e120769a4b8ca9ef9a154e5a6, type: 2}
   - {fileID: 11400000, guid: cec41e97634b9dd4e811dc08a8465c7e, type: 2}
-  quicken: 0
-  delay: 0
-  stop: 0
+  _buffCycles: 0
   _cyclesNeeded: 15
   elementalBoost:
   - 0
@@ -80,7 +78,7 @@ MonoBehaviour:
   - 0
   damagePowerRes:
   - -0.2
-  - 0.25
-  - 0.25
+  - 0.05
+  - 0.05
   - 0
   - 0

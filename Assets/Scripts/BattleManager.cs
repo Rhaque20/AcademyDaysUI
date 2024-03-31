@@ -14,8 +14,8 @@ public class BattleManager : MonoBehaviour
     public TMP_Dropdown dropdown;
     public TMP_InputField damageInput;
 
-    Fighter attacker,defender;
-    Entity _activeEntity;
+    private Fighter attacker,defender;
+    private Entity _activeEntity;
     public List<GameObject> fighterList = new List<GameObject>();
 
     public GameObject attackerUI = null,defenderUI = null, toggleCharPrefab;
@@ -36,6 +36,11 @@ public class BattleManager : MonoBehaviour
     public Fighter ReturnFighter()
     {
         return attacker;
+    }
+
+    public Entity activeEntity
+    {
+        get{return _activeEntity;}
     }
 
     // public GameObject Entity(int i)
@@ -69,7 +74,7 @@ public class BattleManager : MonoBehaviour
             // activeTemp = listContent.GetChild(listContent.childCount - 1).gameObject;
             g = Instantiate(toggleCharPrefab);
             toggleChar = g.GetComponent<ToggleCharacter>();
-            toggleChar.Initialize(combatants[i],ToggleCharacter.ToggleType.TurnOrderToggle);
+            toggleChar.Initialize(combatants[i],ToggleCharacter.ToggleType.Character);
             g.transform.SetParent(effectApplyToggleList);
             g.GetComponent<Transform>().localScale = new Vector3(1f,1f,1f);
 
@@ -91,6 +96,7 @@ public class BattleManager : MonoBehaviour
 
         attacker = combatants[0].getFighterData;
         defender = combatants[1].getFighterData;
+        SetFighter(combatants[0]);
         _damageModal.GetComponent<DamageModal>().Initialize(combatants);
         _damageModal.GetComponent<DamageModal>().SetAttackerProfile(combatants[0].getFighterData);
         _damageModal.SetActive(false);

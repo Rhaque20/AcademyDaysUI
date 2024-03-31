@@ -150,7 +150,7 @@ public class StatusModal : MonoBehaviour
 
         for(i = 0; i < 11; i++)
         {
-            statusVal = statTrack.GetChild(i).GetComponent<TMP_Text>();
+            statusVal = statTrack.GetChild(i).GetChild(1).GetComponent<TMP_Text>();
             GenerateStatValueText(statusVal,i);
         }
 

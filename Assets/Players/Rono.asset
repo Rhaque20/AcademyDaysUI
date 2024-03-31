@@ -22,7 +22,7 @@ MonoBehaviour:
   level: 1
   stats:
   - 105
-  - 69
+  - 82
   - 34
   - 57
   - 36
@@ -56,7 +56,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c4931b1ab069174ba23315880758225, type: 2}
   - {fileID: 11400000, guid: 6ea0988ab3a07cd4a949c8b60e132f81, type: 2}
   _buffCycles: 0
-  _cyclesNeeded: 2
+  _cyclesNeeded: 12
   elementalBoost:
   - 0
   - 0
@@ -83,3 +83,4 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  charAttributes: 000000000000000000000000000000000000000000000000

@@ -55,7 +55,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7bd992dd7e7b32141b6a9c75c3a54e0b, type: 2}
   - {fileID: 11400000, guid: eb432879de42c304f814e2c6264d6611, type: 2}
   _buffCycles: 0
-  _cyclesNeeded: 1
+  _cyclesNeeded: 12
   elementalBoost:
   - 0
   - 0
@@ -82,3 +82,4 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  charAttributes: 000000000000000000000000000000000000000000000000

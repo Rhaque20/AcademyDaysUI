@@ -207,49 +207,24 @@ public class TurnOrderManager : MonoBehaviour
 
     public void CastSpell()
     {
-        List<ToggleCharacter> caster = _fighterSelection.ReturnSelected();
-
-        if(caster.Count == 0)
+        Entity caster = BattleManager.instance.activeEntity;
+        if(caster.isSpellUnit)
         {
-            _statusText.SetText("Please Select a Caster.");
+            _statusText.SetText("Select a caster, not a spell unit "+caster.getFighterData.charName);
             return;
         }
-
-        if(_spellName.text.CompareTo("") == 0)
+        _statusText.SetText("Casting "+_spellName.text+" from caster:"+caster.getFighterData.charName);
+        _spellUnits[caster.getFighterData.charName].SetActive(true);
+        if(_spellUnits.ContainsKey(caster.getFighterData.charName))
         {
-            _statusText.SetText("Insert a spell name.");
-            return;
+            Debug.Log("It does have exist but held entity is "+ _spellUnits[caster.getFighterData.charName].GetComponent<ToggleCharacter>().name);
         }
-
-        if(_spellSpeed.text.CompareTo("") == 0)
-        {
-            _statusText.SetText("Set a spell speed.");
-            return;
-        }
-            
-
-        if(caster.Count > 1)
-        {
-            _statusText.SetText("Select ONE caster");
-            return;
-        }
-        if(caster[0].heldEntity.isSpellUnit)
-        {
-            _statusText.SetText("Select a caster, not a spell unit "+caster[0].heldEntity.name);
-            return;
-        }
-        _statusText.SetText("Casting "+_spellName.text+" from caster:"+caster[0].heldEntity.getFighterData.charName);
-        _spellUnits[caster[0].name].SetActive(true);
-        if(_spellUnits.ContainsKey(caster[0].name))
-        {
-            Debug.Log("It does have exist but held entity is "+ _spellUnits[caster[0].name].GetComponent<ToggleCharacter>().name);
-        }
-        Entity spellUnit = _spellUnits[caster[0].name].GetComponent<ToggleCharacter>().heldEntity;
+        Entity spellUnit = _spellUnits[caster.getFighterData.charName].GetComponent<ToggleCharacter>().heldEntity;
         if (spellUnit == null)
-            Debug.Log("No spell unit initialized for "+caster[0].name);
+            Debug.Log("No spell unit initialized for "+caster.getFighterData.charName);
         
-        spellUnit.EditSpellUnit(caster[0].heldEntity.getFighterData,_spellName.text,float.Parse(_spellSpeed.text));
-        _spellUnits[caster[0].name].GetComponent<ToggleCharacter>().SetUpSpellUnit(spellUnit);
+        spellUnit.EditSpellUnit(caster.getFighterData,_spellName.text,float.Parse(_spellSpeed.text));
+        _spellUnits[caster.getFighterData.charName].GetComponent<ToggleCharacter>().SetUpSpellUnit(spellUnit);
         _combatants.Add(spellUnit);
         Debug.Log("Spell unit is "+spellUnit.name);
         _combatants.Sort();
