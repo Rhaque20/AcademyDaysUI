@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42507906649e40547ac16434c8c9faab, type: 3}
-  m_Name: Rono
+  m_Name: Brandon
   m_EditorClassIdentifier: 
-  charName: Rono
-  portrait: {fileID: 21300000, guid: d9c5451fdc61a0244b44d2b1c326c6d8, type: 3}
-  attribute: 3
-  species1: 6
-  species2: 1
+  charName: Brandon
+  portrait: {fileID: 21300000, guid: 52de1c709e918f440a7ae4ff1bbcba51, type: 3}
+  attribute: 0
+  species1: 1
+  species2: 0
   useName: 1
   unitType: 0
   level: 1
   stats:
-  - 105
-  - 69
-  - 34
-  - 57
-  - 36
-  - 61
-  - 90
-  - 31
+  - 115
+  - 59
   - 45
+  - 45
+  - 36
+  - 35
+  - 70
+  - 25
+  - 43
   - 4
   - 3
   statBoosts:
@@ -53,10 +53,9 @@ MonoBehaviour:
   - 0
   skillsList:
   - {fileID: 11400000, guid: 8ca0b98e120769a4b8ca9ef9a154e5a6, type: 2}
-  - {fileID: 11400000, guid: 4c4931b1ab069174ba23315880758225, type: 2}
-  - {fileID: 11400000, guid: 6ea0988ab3a07cd4a949c8b60e132f81, type: 2}
+  - {fileID: 11400000, guid: cdc08835c021f38468fe4b20dc5ac6a8, type: 2}
   _buffCycles: 0
-  _cyclesNeeded: 2
+  _cyclesNeeded: 1
   elementalBoost:
   - 0
   - 0

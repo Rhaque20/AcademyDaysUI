@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1392288014193339572, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
       propertyPath: subFighter
       value: 
-      objectReference: {fileID: 11400000, guid: 9fa8262cc26d3bf4a8087fe1216a426d, type: 2}
+      objectReference: {fileID: 11400000, guid: e82bfa34306e1454dbe3244dc65612ba, type: 2}
     - target: {fileID: 1392288014193339572, guid: f70f2316303001b42adcd450f7ca957d, type: 3}
       propertyPath: mainFighter
       value: 

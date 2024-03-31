@@ -53,6 +53,7 @@ MonoBehaviour:
   - 0
   skillsList:
   - {fileID: 11400000, guid: 8ca0b98e120769a4b8ca9ef9a154e5a6, type: 2}
+  - {fileID: 11400000, guid: c0bcbd694b921244e9e10a271f002046, type: 2}
   _buffCycles: 0
   _cyclesNeeded: 17
   elementalBoost:

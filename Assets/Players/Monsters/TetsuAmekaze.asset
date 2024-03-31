@@ -9,29 +9,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42507906649e40547ac16434c8c9faab, type: 3}
-  m_Name: Rono
+  m_Script: {fileID: 11500000, guid: 2934b30848cc77b4992d035a30c1bd76, type: 3}
+  m_Name: TetsuAmekaze
   m_EditorClassIdentifier: 
-  charName: Rono
-  portrait: {fileID: 21300000, guid: d9c5451fdc61a0244b44d2b1c326c6d8, type: 3}
-  attribute: 3
-  species1: 6
-  species2: 1
+  charName: 
+  portrait: {fileID: 0}
+  attribute: 0
+  species1: 0
+  species2: 0
   useName: 1
   unitType: 0
   level: 1
   stats:
-  - 105
-  - 69
-  - 34
-  - 57
-  - 36
-  - 61
-  - 90
-  - 31
-  - 45
-  - 4
-  - 3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   statBoosts:
   - 0
   - 0
@@ -51,12 +51,9 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  skillsList:
-  - {fileID: 11400000, guid: 8ca0b98e120769a4b8ca9ef9a154e5a6, type: 2}
-  - {fileID: 11400000, guid: 4c4931b1ab069174ba23315880758225, type: 2}
-  - {fileID: 11400000, guid: 6ea0988ab3a07cd4a949c8b60e132f81, type: 2}
+  skillsList: []
   _buffCycles: 0
-  _cyclesNeeded: 2
+  _cyclesNeeded: 0
   elementalBoost:
   - 0
   - 0

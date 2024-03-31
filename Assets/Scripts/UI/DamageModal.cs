@@ -150,6 +150,9 @@ public class DamageModal : MonoBehaviour
             case EnumLibrary.ATKScale.HalfMDEF:
                 attack = 0.8f * MDEF;
             break;
+            case EnumLibrary.ATKScale.MaxHealth:
+                attack = 1.0f * attacker.GetFinalStat((int)EnumLibrary.Stats.HP);
+                break;
             default:
                 attack = 100f;
             break;
@@ -219,7 +222,7 @@ public class DamageModal : MonoBehaviour
                     totalModifier += (ElementPowerMod((int)attackingSkill.attribute,defender));
                     totalModifier += RacialBane(attackingSkill.racialBane,attackingSkill.racialBaneMod,defender);
                     Debug.Log("Attack is "+attack+" and final modifier is"+totalModifier+" scaled DEF is "+ScaleDEF(attackingSkill.defScale,defender,defenderList[i].GetDropDownValue(0)));
-                    finalDamage = (attack * attackingSkill.skillPower * totalModifier - ScaleDEF(attackingSkill.defScale,defender,defenderList[i].GetDropDownValue(0))) - UnityEngine.Random.Range(1,10f);
+                    finalDamage = (attack * attackingSkill.skillPower * totalModifier) - ScaleDEF(attackingSkill.defScale,defender,defenderList[i].GetDropDownValue(0)) - UnityEngine.Random.Range(1,10f);
                     finalDamage = Mathf.Max(finalDamage,1);
                     _damageLog.GetChild(i).gameObject.SetActive(true);
                     _damageLog.GetChild(i).GetComponent<TMP_Text>().SetText(defender.charName+"'s AC is <b>"+FinalAC(_attacker,defender)+
@@ -229,7 +232,7 @@ public class DamageModal : MonoBehaviour
                 {
                     if(attackingSkill.atkScale == EnumLibrary.ATKScale.HalfMDEF)
                     {
-                        finalDamage = Mathf.Max(finalDamage,1);
+                        finalDamage = Mathf.Max(ScaleATK(attackingSkill.atkScale,_attacker),1);
                         _damageLog.GetChild(i).gameObject.SetActive(true);
                         _damageLog.GetChild(i).GetComponent<TMP_Text>().SetText("Restore "+finalDamage+" HP to "+defender.charName);
                     }

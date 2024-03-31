@@ -10,7 +10,7 @@ public class EnumLibrary
     public enum OtherStats{HITUP,EVAUP,CRITUP,CastRateRed,GutsChance,HPCostDown}
     public enum ATKScale{Flat,NormalWarrior,NormalMage,HeavyWarrior,
     HeavyMage,DEFScale,NimbleWarrior,NimbleThief,Archer,Gunner,
-    HalfMDEF};
+    HalfMDEF,MaxHealth};
     public enum DEFScale{None,Physical,Magical};
     public enum SkillType{None,NonATK,Damage,Support,Debuff,Heal};
 }
