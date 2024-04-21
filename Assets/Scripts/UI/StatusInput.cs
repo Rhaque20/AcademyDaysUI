@@ -7,6 +7,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 public class StatusInput : MonoBehaviour
 {
+    private const int ELEMENT = 0, POWER = 1, STAT = 2;
     public TMP_InputField inputField;
     private Image backDrop,shield, icon;
     public bool isResistance;
@@ -18,6 +19,8 @@ public class StatusInput : MonoBehaviour
     [SerializeField]bool isBuff = true, onUse = false;
     TMP_Text onUseNotification;
 
+    private int _heldType = 0;
+
     public bool storedBuff
     {
         get{return isBuff;}
@@ -26,6 +29,11 @@ public class StatusInput : MonoBehaviour
     public bool onlyOnUse
     {
         get{return onUse;}
+    }
+
+    public int heldType
+    {
+        get{return _heldType;}
     }
 
     // Start is called before the first frame update
@@ -51,23 +59,26 @@ public class StatusInput : MonoBehaviour
     public void SetUp(ToggleButton status, Color backColor, bool onUse)
     {
         isElement = status.elemental;
-        if(isElement)
-        {
-            attribute = status.attribute;
-            icon.sprite = BattleManager.instance.elementIcons[(int)attribute];
 
-        }
-        else if(status.power != EnumLibrary.DamagePower.NonType)
+        switch(status.effectType)
         {
-            power = status.power;
-            icon.sprite = BattleManager.instance.powerIcons[(int)power];
+            case ELEMENT:
+                attribute = status.attribute;
+                icon.sprite = BattleManager.instance.elementIcons[(int)attribute];
+            break;
+
+            case POWER:
+                power = status.power;
+                icon.sprite = BattleManager.instance.powerIcons[(int)power];
+            break;
+            default:
+                stats = status.stat;
+                icon.sprite = BattleManager.instance.statIcons[(int)stats];
+                isStatUp = true;
+            break;
         }
-        else
-        {
-            stats = status.stat;
-            icon.sprite = BattleManager.instance.statIcons[(int)stats];
-            isStatUp = true;
-        }
+
+        _heldType = status.effectType;
 
         shield.gameObject.SetActive(status.resistance);
         backDrop.color = backColor;

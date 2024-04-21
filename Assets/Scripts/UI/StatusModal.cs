@@ -6,6 +6,7 @@ using TMPro;
 
 public class StatusModal : MonoBehaviour
 {
+    private const int ELEMENT = 0, POWER = 1, STAT = 2;
     Transform applyStatus,currentStatus;
     public Color buffColor, debuffColor;
     [SerializeField]Transform powerButton,resistanceButton, statButton, afflictionButton,effectListContent;
@@ -204,7 +205,7 @@ public class StatusModal : MonoBehaviour
 
     public void SummonListItem(ToggleButton toggleData, bool isOn)
     {
-        Debug.Log("Summoning list item!");
+        Debug.Log("Summoning list item! Toggling it "+isOn);
         GameObject temp;
         if (isOn)
         {
@@ -228,7 +229,7 @@ public class StatusModal : MonoBehaviour
                 {
                     StatusInput status = temp.GetComponent<StatusInput>();
 
-                    if (status.isElement && toggleData.elemental)
+                    if (status.heldType == ELEMENT)
                     {
                         if (status.attribute == toggleData.attribute)
                         {
@@ -236,9 +237,17 @@ public class StatusModal : MonoBehaviour
                             break;
                         }
                     }
-                    else if (!status.isElement && !toggleData.elemental)
+                    else if (status.heldType == POWER)
                     {
                         if (status.power == toggleData.power)
+                        {
+                            status.ClearData();
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        if (status.stats == toggleData.stat)
                         {
                             status.ClearData();
                             break;
